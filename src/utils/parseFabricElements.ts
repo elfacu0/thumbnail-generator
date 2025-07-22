@@ -1,7 +1,7 @@
-import { IBoundingBox, IElement } from "@/app/interfaces/fabric.interface";
+import { BoundingBox, Element } from "@/interfaces/fabric";
 import { FabricObject } from "fabric";
 
-const parseElementBoundingBox = (element: FabricObject): IBoundingBox => {
+const parseElementBoundingBox = (element: FabricObject): BoundingBox => {
   const boundingBox = element.getBoundingRect();
   return {
     x1: boundingBox.left ?? 0,
@@ -13,7 +13,7 @@ const parseElementBoundingBox = (element: FabricObject): IBoundingBox => {
 
 export const fromFabricElementsToElements = (
   elements: FabricObject[]
-): IElement[] => {
+): Element[] => {
   return elements.map((element) => ({
     content: "text" in element ? (element.text as string) : "Ignore this",
     boundingBox: parseElementBoundingBox(element),

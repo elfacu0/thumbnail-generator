@@ -1,6 +1,6 @@
-import { IElement } from "@/app/interfaces/fabric.interface";
+import { Element } from "@/interfaces/fabric";
 
-export const generateImagePrompt = (elements: IElement[]) => {
+export const generateImagePrompt = (elements: Element[]) => {
   const formatCoord = (value: number) => value.toFixed();
   const getCleanedBoundingBox = ({
     x1,
