@@ -8,6 +8,23 @@ export function useFabric() {
   const fabricCanvasRef = useRef<FabricCanvas | null>(null);
   const fontSize = 24;
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        const fabricCanvas = fabricCanvasRef.current;
+        if (fabricCanvas && fabricCanvas.getActiveObject()) {
+          fabricCanvas.discardActiveObject();
+          fabricCanvas.requestRenderAll();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown, { passive: true });
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const createTextbox = (text: string, options = {}) => {
     return new Textbox(text, {
       left: 100,
