@@ -6,7 +6,7 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: React.FC<IButtonProps> = ({ children, ...props }) => (
   <button
-    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+    className="px-5 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold shadow hover:from-indigo-600 hover:to-violet-600 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400"
     {...props}
   >
     {children}
