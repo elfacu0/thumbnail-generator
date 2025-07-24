@@ -20,11 +20,11 @@ export const Canvas: React.FC = () => {
 
   return (
     <>
-      <Button onClick={addElement}>Add Rectangle</Button>
-      <canvas ref={canvasRef} width={600} height={400} />
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 pb-4">
+        <Button onClick={addElement}>Add Rectangle</Button>
         <Button onClick={convertImage}>Convert with IA</Button>
       </div>
+      <canvas ref={canvasRef} width={600} height={400} />
       <Modal
         title="Image created with AI"
         isOpen={isModalOpen}
