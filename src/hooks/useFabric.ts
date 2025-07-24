@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas as FabricCanvas, Textbox } from "fabric";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 export function useFabric() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -21,7 +21,7 @@ export function useFabric() {
     });
   };
 
-  const addTextElement = () => {
+  const addTextElement = useCallback(() => {
     const fabricCanvas = fabricCanvasRef.current;
     if (!fabricCanvas) return;
 
@@ -50,7 +50,7 @@ export function useFabric() {
     });
 
     fabricCanvas.add(textbox);
-  };
+  }, []);
 
   const addElement = () => {
     addTextElement();
@@ -77,7 +77,7 @@ export function useFabric() {
         fabricCanvasRef.current = null;
       };
     }
-  }, []);
+  }, [addTextElement]);
 
   return { canvasRef, addElement, getElements };
 }
