@@ -26,7 +26,7 @@ export const generateImagePrompt = (elements: Element[]) => {
   });
 
   return (
-    "Create a youtube thumbnail containg the following: \n" +
+    "Create a youtube thumbnail (1280x720) containg the following, considering the position: \n" +
     imageContent.join("\n")
   );
 };
