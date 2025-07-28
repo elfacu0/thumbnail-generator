@@ -27,8 +27,8 @@ export function useFabric() {
 
   const createTextbox = (text: string, options = {}) => {
     return new Textbox(text, {
-      left: 100,
-      top: 100,
+      left: 500,
+      top: 320,
       fill: "black",
       fontSize,
       backgroundColor: "rgba(138, 43, 226, 0.3)",
